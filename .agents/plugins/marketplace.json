@@ -1,0 +1,20 @@
+{
+  "name": "text-to-cad-local",
+  "interface": {
+    "displayName": "Text-to-CAD Coach"
+  },
+  "plugins": [
+    {
+      "name": "text-to-cad-coach",
+      "source": {
+        "source": "local",
+        "path": "./plugins/text-to-cad-coach"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
