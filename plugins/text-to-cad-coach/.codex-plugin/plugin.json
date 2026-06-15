@@ -1,7 +1,7 @@
 {
   "name": "text-to-cad-coach",
-  "version": "0.1.0",
-  "description": "Refines rough physical-part ideas into measurable, printable requirements and implementation prompts for text-to-CAD workflows.",
+  "version": "0.2.0+codex.20260615043049",
+  "description": "Refines physical-part ideas, generates parametric CAD, exports STEP and mesh files, and validates the results.",
   "author": {
     "name": "jonawilliams14",
     "url": "https://github.com/jonawilliams14"
@@ -9,18 +9,12 @@
   "homepage": "https://github.com/jonawilliams14/Text-to-CAD-Coach",
   "repository": "https://github.com/jonawilliams14/Text-to-CAD-Coach",
   "license": "MIT",
-  "keywords": [
-    "cad",
-    "3d-printing",
-    "requirements",
-    "prompt-coach",
-    "codex"
-  ],
+  "keywords": ["cad", "3d-printing", "requirements", "step", "codex"],
   "skills": "./skills/",
   "interface": {
-    "displayName": "Text-to-CAD Coach",
-    "shortDescription": "Turn rough ideas into CAD-ready requirements.",
-    "longDescription": "A guided requirements coach for parametric and 3D-printable CAD parts. It asks focused questions, tracks uncertain dimensions, checks fit and printability, and produces a self-contained implementation prompt.",
+    "displayName": "Text-to-CAD",
+    "shortDescription": "Refine ideas and generate validated CAD files.",
+    "longDescription": "An end-to-end workflow for parametric and 3D-printable CAD parts. It refines requirements, generates source and STEP geometry, exports requested mesh formats, and validates dimensions and printability.",
     "developerName": "jonawilliams14",
     "category": "Productivity",
     "capabilities": [
@@ -28,9 +22,10 @@
       "Write"
     ],
     "defaultPrompt": [
-      "Help me refine an idea into a CAD-ready specification.",
-      "Design a Duplo-compatible part with me.",
-      "Review my CAD prompt for missing requirements."
+      "Turn my idea into a validated STEP model.",
+      "Design and generate a Duplo-compatible part.",
+      "Review and implement my CAD requirements."
     ]
   }
 }
+
