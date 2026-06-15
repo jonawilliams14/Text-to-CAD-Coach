@@ -1,0 +1,5 @@
+interface:
+  display_name: "Text-to-CAD Requirements Coach"
+  short_description: "Refine ideas into measurable CAD requirements"
+  default_prompt: "Help me refine this idea, then build it when the requirements are ready."
+
