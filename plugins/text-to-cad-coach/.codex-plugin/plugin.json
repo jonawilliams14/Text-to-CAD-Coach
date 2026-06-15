@@ -1,6 +1,6 @@
 {
   "name": "text-to-cad-coach",
-  "version": "0.2.0+codex.20260615043049",
+  "version": "0.2.0",
   "description": "Refines physical-part ideas, generates parametric CAD, exports STEP and mesh files, and validates the results.",
   "author": {
     "name": "jonawilliams14",
