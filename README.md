@@ -1,70 +1,65 @@
-# Text-to-CAD Coach
+# Text-to-CAD
 
-A Codex plugin that turns rough physical-part ideas into measurable, printable CAD requirements and self-contained implementation prompts.
+An end-to-end Codex plugin that turns rough physical-part ideas into validated parametric CAD files.
 
-The coach asks focused questions about geometry, mating interfaces, dimensions, fit, manufacturing constraints, and validation. It is especially useful for 3D-printed parts that must connect to existing objects, including Duplo-compatible designs.
+The plugin bundles two cooperating skills:
 
-## What It Does
+- **Requirements Coach:** asks focused questions, records measurement confidence, and produces an implementation-ready specification.
+- **CAD Builder:** writes parametric Python, generates STEP-first geometry, exports requested STL/3MF files, and validates the result.
 
-- Asks up to three high-value refining questions at a time.
-- Separates confirmed measurements, nominal references, and assumptions.
-- Identifies missing dimensions that would materially change the model.
-- Covers printer, material, nozzle, support, and orientation constraints.
-- Recommends fit coupons for mating and clutch features.
-- Produces a structured requirements specification.
-- Produces a copy-ready prompt for a text-to-CAD implementation agent.
+## Capabilities
 
-## Install in Codex
+- Refine dimensions, interfaces, fit, manufacturing constraints, and acceptance criteria.
+- Distinguish confirmed, nominal, and assumed dimensions.
+- Generate parametric CAD source using the repository's existing CAD library.
+- Produce STEP as the primary artifact and optional STL/3MF exports.
+- Check source execution, solid validity, bounding dimensions, critical features, and printability.
+- Generate tolerance coupons before fit-critical parts when practical.
+- Hand supported files to an available CAD viewer.
 
-Add this repository as a plugin marketplace:
+The CAD Python library and any viewer remain local runtime dependencies. The plugin orchestrates those tools rather than embedding a CAD kernel.
+
+## Install
 
 ```powershell
 codex plugin marketplace add jonawilliams14/Text-to-CAD-Coach
-```
-
-Install the plugin:
-
-```powershell
 codex plugin add text-to-cad-coach@text-to-cad-local
 ```
 
-Start a new Codex thread after installation. Invoke the plugin explicitly with:
+Start a new Codex thread after installation.
+
+## Use
+
+Refine an idea and build it:
 
 ```text
-@text-to-cad-coach Help me refine an idea into a CAD-ready specification.
+@text-to-cad-coach Design and generate a removable Duplo-compatible
+platform for a miniature spiral staircase.
 ```
 
-Codex may also invoke the bundled skill automatically when a request matches its description.
-
-## Example
+Build from complete requirements:
 
 ```text
-@text-to-cad-coach Help me design a removable platform that connects a
-miniature spiral staircase to a Duplo set.
+@text-to-cad-coach Create a 60 x 40 x 4 mm mounting plate with four
+4.5 mm corner holes, then export validated STEP and STL files.
 ```
 
-The coach will first establish the connection direction, footprint, measured mating dimensions, desired clutch strength, and printing process. It will not invent proprietary compatibility dimensions.
+The plugin will route incomplete fit-critical requests through the coach and send ready specifications directly to the builder.
 
-## Repository Structure
+## Structure
 
 ```text
 .agents/plugins/marketplace.json
 plugins/text-to-cad-coach/
   .codex-plugin/plugin.json
-  skills/text-to-cad-requirements-coach/
-    SKILL.md
-    references/
+  skills/
+    text-to-cad-requirements-coach/
+    text-to-cad-builder/
 ```
 
-## Development
+## Runtime
 
-Validate the plugin with Codex's `plugin-creator` validator:
-
-```powershell
-python scripts/validate_plugin.py <path-to-plugin>
-```
-
-After changing an installed local plugin, update its cachebuster or reinstall it, then test from a new Codex thread.
+Use an existing project CAD environment when possible. The builder prefers build123d when starting fresh and supports CadQuery projects by following their existing conventions.
 
 ## License
 
