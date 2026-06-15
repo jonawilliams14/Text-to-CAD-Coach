@@ -1,7 +1,7 @@
 {
   "name": "text-to-cad-local",
   "interface": {
-    "displayName": "Text-to-CAD Coach"
+    "displayName": "Text-to-CAD"
   },
   "plugins": [
     {
@@ -18,3 +18,4 @@
     }
   ]
 }
+
