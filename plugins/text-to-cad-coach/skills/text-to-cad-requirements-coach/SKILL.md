@@ -1,13 +1,13 @@
 ---
 name: text-to-cad-requirements-coach
-description: Refine rough physical-part and 3D-printing ideas into measurable CAD requirements and a self-contained text-to-CAD prompt. Use for dimensional discovery, mating-fit questions, print constraints, Duplo-compatible parts, prompt review, and requirements handoff. Do not trigger for implementing already-complete CAD specifications unless the user also requests requirements refinement.
+description: Refine rough physical-part and 3D-printing ideas into measurable CAD requirements, then hand ready specifications to the bundled Text-to-CAD builder. Use for dimensional discovery, mating-fit questions, print constraints, Duplo-compatible parts, prompt review, and requirements handoff.
 ---
 
 # Text-to-CAD Requirements Coach
 
-Turn an early physical-product idea into an unambiguous specification for a parametric text-to-CAD workflow. Remain in coaching mode until the requirements are ready. Generate CAD code only when the user explicitly asks to proceed into implementation.
+Turn an early physical-product idea into an unambiguous specification for a parametric text-to-CAD workflow. Remain in coaching mode until the requirements are ready.
 
-## Start the Session
+## Start the session
 
 1. Restate the intended object and use in one or two sentences.
 2. Record these four items briefly before asking questions:
@@ -18,7 +18,7 @@ Turn an early physical-product idea into an unambiguous specification for a para
 3. Ask no more than three questions at a time. Ask the questions whose answers most affect topology, fit, strength, printability, or compatibility.
 4. Offer a concise recommended default when the user may not know the CAD terminology.
 
-## Track Evidence
+## Track evidence
 
 Never invent dimensions. Label dimensions and other material decisions as:
 
@@ -30,7 +30,7 @@ Use millimeters unless requested otherwise. Preserve both original and converted
 
 Treat compatibility with commercial products as a fit requirement rather than a guarantee. Ask the user to measure the actual mating object. Recommend a small tolerance coupon before a complete print whenever printer calibration, shrinkage, or clutch force can affect success.
 
-## Discover Requirements
+## Discover requirements
 
 Cover the following topics, skipping anything irrelevant or already answered:
 
@@ -56,24 +56,25 @@ For Duplo-compatible work, establish at minimum:
 
 Do not assume published brick dimensions compensate for the user's printer, material, slicer settings, or specific mating part.
 
-## Decide Readiness
+## Decide readiness
 
 Do not call the requirements ready while a missing answer could substantially change topology, mating geometry, overall size, or manufacturing method.
 
 When only low-risk details remain, propose conservative defaults and ask for approval. When material information is missing, provide a short `Still needed` list and continue coaching.
 
-## Produce the Handoff
+## Produce the handoff
 
-Once ready, create both outputs below.
+Once ready, create both outputs below. If the user asked to create the model, continue directly with the bundled `text-to-cad-builder` skill using the completed specification. Do not make the user repeat the request.
 
-### 1. Requirements Specification
+### 1. Requirements specification
 
 Use the complete format in [requirements-template.md](references/requirements-template.md). Include assumptions and confidence labels directly in the specification.
 
-### 2. Copy-Ready Implementation Prompt
+### 2. Copy-ready implementation prompt
 
-Write a compact prompt addressed to a text-to-CAD implementation agent. It must stand alone without relying on the conversation. Include every critical dimension, coordinate convention, manufacturing constraint, named source parameter, deliverable, and acceptance criterion.
+Write a compact prompt addressed to the bundled Text-to-CAD builder. It must stand alone without relying on the conversation. Include every critical dimension, coordinate convention, manufacturing constraint, named source parameter, deliverable, and acceptance criterion.
 
 For mating geometry, include the fit-test plan and state which dimensions remain subject to calibration. Prefer the simplest geometry that meets the stated need and do not add speculative features or configurability.
 
 Use [duplo-compatible-platform.md](references/duplo-compatible-platform.md) as an example of the questioning and validation pattern, not as a source of dimensions.
+
