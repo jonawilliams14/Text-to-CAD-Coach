@@ -7,7 +7,7 @@ details, and two sockets beneath the feet.
 ## Files
 
 - `duplo_spider_figure.py`: parametric build123d source exposing `gen_step()`.
-- `duplo_spider_figure.stl`: generated binary print mesh.
+- `duplo_spider_figure.stl`: generated binary print mesh (not committed).
 
 ## Geometry
 
@@ -24,14 +24,14 @@ settings before printing the complete figure.
 
 ## Validation
 
-The source and included STL were checked as:
+The source and locally generated STL were checked as:
 
 - one valid, positive-volume source solid;
 - 48.0 x 32.02 x 78.0 mm source bounding box;
 - 20,130 STL triangles with a valid binary STL record size;
 - build-plane minimum at approximately Z = 0 mm.
 
-The STL has not been certified for a particular slicer. Run the slicer's mesh
+Generate the STL from the parametric source with the Text-to-CAD workflow. The STL has not been certified for a particular slicer. Run the slicer's mesh
 repair and preview checks before printing.
 
 
