@@ -46,6 +46,12 @@ Build from complete requirements:
 
 The plugin will route incomplete fit-critical requests through the coach and send ready specifications directly to the builder.
 
+## Examples
+
+- [DUPLO-scale spider figure](examples/duplo-spider-figure/README.md): validated parametric build123d source and a generated STL with calibration-ready foot sockets.
+
+Example dimensions marked as `assumed` are starting points, not guaranteed compatibility values. Measure the mating object and print a tolerance coupon before relying on a full-size print.
+
 ## Structure
 
 ```text
@@ -55,6 +61,8 @@ plugins/text-to-cad-coach/
   skills/
     text-to-cad-requirements-coach/
     text-to-cad-builder/
+examples/
+  duplo-spider-figure/
 ```
 
 ## Runtime
@@ -64,3 +72,4 @@ Use an existing project CAD environment when possible. The builder prefers build
 ## License
 
 MIT
+
