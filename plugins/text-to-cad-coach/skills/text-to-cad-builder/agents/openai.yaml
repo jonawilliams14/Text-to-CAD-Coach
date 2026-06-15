@@ -1,0 +1,5 @@
+interface:
+  display_name: "Text-to-CAD Builder"
+  short_description: "Generate and validate parametric CAD files"
+  default_prompt: "Create a validated STEP model from these requirements."
+
