@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+
+# Local CAD viewer and inspection sidecars.
+*.step.glb
+*.step.topology.json
+*.step.metadata.json
+
+# Local environments and editor state.
+.venv/
+.vscode/
+.idea/
+
